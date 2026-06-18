@@ -23,6 +23,8 @@ func HandleCount(w http.ResponseWriter, r *http.Request) {
 			http.Error(w, "Bad Request", http.StatusBadRequest)
 			return
 		}
+		defer r.Body.Close()
+		
 		text := string(red)
 		fmt.Fprintln(w, len(text))
 		return
