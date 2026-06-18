@@ -2,6 +2,7 @@ package main
 
 import (
 	"fmt"
+	"log"
 	"net/http"
 )
 
@@ -15,5 +16,8 @@ func main() {
 	http.HandleFunc("/legacy", HandleLegacy)
 	http.HandleFunc("/v2", HandleLegacy)
 	fmt.Println("Server Listening:")
-	http.ListenAndServe(":8080", nil)
+	err := http.ListenAndServe(":8080", nil)
+	if err != nil {
+		log.Fatal(err)
+	}
 }
