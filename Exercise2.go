@@ -7,7 +7,7 @@ import (
 
 func HandleHello(w http.ResponseWriter, r *http.Request) {
 	if r.Method != http.MethodGet {
-		http.Error(w, "Method Not Allowed", http.StatusMethodNotAllowed)
+		http.Error(w, "Method Not Allowed!!", http.StatusMethodNotAllowed)
 		return
 	}
 	if r.URL.Path != "/hello" {
